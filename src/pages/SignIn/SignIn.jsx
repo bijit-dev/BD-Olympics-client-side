@@ -4,8 +4,10 @@ import SocialLogin from './SocialLogin';
 import { Link, useLocation, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import { LuEye, LuEyeOff } from 'react-icons/lu';
 const SignIn = () => {
+    const [showPassword, setShowPassword] = useState(false)
     const { signIn } = useAuth();
     const emailRef = useRef();
     const location = useLocation();
@@ -50,8 +52,13 @@ const SignIn = () => {
                                 <fieldset className="fieldset">
                                     <label className="label">Email</label>
                                     <input type="email" name="email" className="input" ref={emailRef} placeholder="Email" />
-                                    <label className="label">Password</label>
-                                    <input type="password" name='password' className="input" placeholder="Password" />
+
+                                    <fieldset className='relative'>
+                                        <label className="label">Password</label>
+                                        <input type={showPassword ? "text" : "password"} name='password' className="input" placeholder="Password" />
+                                        <a onClick={() => setShowPassword(!showPassword)} className='btn btn-sm absolute top-1/3 right-5 bg-transparent border-0 z-10 hover:border hover:border-red-500'>{showPassword ? <LuEyeOff /> : <LuEye />}</a>
+                                    </fieldset>
+
                                     <div><a className="link link-hover">Forgot password?</a></div>
                                     <label className=' lable mt-2'> <input type="checkbox" name="terms" className="checkbox" required /> Accept Terms and Conditions</label>
                                     <button className="btn btn-neutral mt-4">Sign In</button>

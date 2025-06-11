@@ -1,16 +1,19 @@
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router";
 
 const CreateEvent = () => {
     const { user } = useAuth();
-    console.log(user);
 
+    const Navigate = useNavigate();
 
     const handleAddEvent = e => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const newEvent = Object.fromEntries(formData.entries())
+
+        Navigate('/manageEvents');
 
         // send event data to the db
         fetch('http://localhost:3000/create-event', {
@@ -30,7 +33,7 @@ const CreateEvent = () => {
                         timer: 1500
                     });
 
-                    // form.reset()
+                    form.reset()
                 }
             })
     }

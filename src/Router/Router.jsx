@@ -11,6 +11,7 @@ import MyBookings from "../pages/MyBookings/MyBookings";
 import ManageEvents from "../pages/ManageEvents/ManageEvents";
 import CreateEvent from "../pages/CreateEvent/CreateEvent";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import EventDetails from "../pages/EventDetails/EventDetails";
 
 export const router = createBrowserRouter([
     {
@@ -23,11 +24,13 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'eventsPage',
-                Component: EventsPage
+                Component: EventsPage,
+                loader: () => fetch('http://localhost:3000/events')
             },
             {
-                path: 'events/:id',
-                // Component: EventDetails
+                path: 'event/:id',
+                Component: EventDetails,
+                loader: ({ params }) => fetch(`http://localhost:3000/event/${params.id}`)
             },
             {
                 path: 'bookEvent',

@@ -9,6 +9,8 @@ import EventsPage from "../pages/EventsPage/EventsPage";
 import BookEvent from "../pages/BookEvent/BookEvent";
 import MyBookings from "../pages/MyBookings/MyBookings";
 import ManageEvents from "../pages/ManageEvents/ManageEvents";
+import CreateEvent from "../pages/CreateEvent/CreateEvent";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {
@@ -41,7 +43,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'create-event',
-                // Component: createEvent
+                Component: CreateEvent
             },
             {
                 path: 'updateEvent/:id',
@@ -57,4 +59,8 @@ export const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: "*",
+        Component: ErrorPage
+    }
 ]);

@@ -26,6 +26,7 @@ const Navbar = () => {
             <div className="navbar-start">
                 <div className="flex items-center">
                     <img src={Logo} alt="Logo" className="w-10 h-10 mr-2" />
+                    <h1 className="font-extrabold text-lg lg:text-2xl">BD.Event</h1>
                 </div>
 
             </div>

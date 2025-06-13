@@ -8,7 +8,7 @@ const Contact = () => {
 
     }
     return (
-        <section className="bg-gray-100 py-12 px-6 md:px-20">
+        <section className="bg-blue-50 py-12 px-6 md:px-20">
             <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
 
                 {/* Contact Info */}

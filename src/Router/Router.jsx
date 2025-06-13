@@ -12,6 +12,7 @@ import ManageEvents from "../pages/ManageEvents/ManageEvents";
 import CreateEvent from "../pages/CreateEvent/CreateEvent";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import EventDetails from "../pages/EventDetails/EventDetails";
+import PrivateRouter from "./PrivateRouter";
 
 export const router = createBrowserRouter([
     {
@@ -29,28 +30,29 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'event/:id',
-                Component: EventDetails,
+                element: <PrivateRouter><EventDetails/></PrivateRouter>,
+                // loader: () => fetch('http://localhost:3000/events')
                 loader: ({ params }) => fetch(`http://localhost:3000/event/${params.id}`)
             },
             {
                 path: 'bookEvent',
-                Component: BookEvent
+                element: <PrivateRouter><BookEvent/></PrivateRouter>,
             },
             {
                 path: 'myBookings',
-                Component: MyBookings
+                element: <PrivateRouter><MyBookings/></PrivateRouter>,
             },
             {
                 path: 'manageEvents',
-                Component: ManageEvents
+                element: <PrivateRouter><ManageEvents/></PrivateRouter>,
             },
             {
                 path: 'create-event',
-                Component: CreateEvent
+                element: <PrivateRouter><CreateEvent/></PrivateRouter>,
             },
             {
                 path: 'updateEvent/:id',
-                // Component: updateEvent
+                // element: <PrivateRouter><UpdateEvent/></PrivateRouter>,
             },
             {
                 path: 'register',

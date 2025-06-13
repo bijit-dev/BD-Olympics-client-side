@@ -1,8 +1,24 @@
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate, useParams } from "react-router";
+import useAuth from "../../hooks/useAuth";
 
 const EventDetails = () => {
     const data = useLoaderData();
-    console.log(data);
+    const { user } = useAuth();
+
+    const navigate = useNavigate();
+
+
+
+
+    const e = useParams();
+    console.log(user.email);
+    console.log(e);
+    
+
+    const handleBooking = () => {
+        navigate(`/booking`);
+        // currentEvent.user_email = user.email
+    }
 
     return (
         <div className="container mx-auto px-4 py-12">
@@ -16,7 +32,7 @@ const EventDetails = () => {
             <p className="text-gray-600 font-medium text-lg">Organizer: {data.creatorName}</p>
             <p className="text-gray-600 font-medium text-lg">Contact: {data.creatorEmail}</p>
 
-            <button className="btn btn-primary mt-4">Book Now</button>
+            <button onClick={handleBooking} className="btn btn-primary mt-4">Book Now</button>
         </div>
     );
 };

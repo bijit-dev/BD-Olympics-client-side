@@ -1,17 +1,12 @@
 import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
-import useAuth from "../../hooks/useAuth";
+// import useAuth from "../../hooks/useAuth";
 
 const UpdateEvent = () => {
-    const { user } = useAuth();    
+    // const { user } = useAuth();    
     const initialEvents = useLoaderData();
     const Navigate = useNavigate();
-    console.log(initialEvents.creatorEmail);
-    if (initialEvents.creatorEmail !== user.email) {
-        return Navigate("/");
-    }
-    
-    
+
     const { _id, eventName, eventType, location, eventDate, imageURL, description, creatorEmail, creatorName } = initialEvents;
     const handleUpdateEvent = e => {
         e.preventDefault();
@@ -45,6 +40,7 @@ const UpdateEvent = () => {
     return (
         <div className=' container mx-auto text-center px-5 my-14'>
             <h1 className='text-3xl mb-12 font-bold text-cyan-600'>Update Event Info</h1>
+            
 
             <form onSubmit={handleUpdateEvent} className="bg-base-200 border-base-300 rounded-box border p-8 shadow-2xl">
                 <div className=" grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">

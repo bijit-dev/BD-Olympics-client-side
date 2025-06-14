@@ -66,7 +66,7 @@ const MyEvents = ({ eventsCreatedByPromise }) => {
                         myEvents.map((event, index) => (
                             <tr key={index}>
                                 <th>{index + 1}</th>
-                                <td className=' text-base'>{event.eventName}</td>
+                                <td className=' text-base max-w-56'>{event.eventName}</td>
                                 <td className='text-center'>{event.eventType}</td>
 
                                 <td className='text-center '><NavLink to={`/updateEvent/${event._id}`} className='btn btn-success w-full font-bold text-indigo-600'>Update</NavLink></td>

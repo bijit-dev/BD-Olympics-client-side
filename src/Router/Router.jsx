@@ -6,7 +6,6 @@ import Home from "../pages/Home/Home";
 import SignIn from "../pages/SignIn/SignIn";
 import Register from "../pages/Register/Register";
 import EventsPage from "../pages/EventsPage/EventsPage";
-import BookEvent from "../pages/BookEvent/BookEvent";
 import MyBookings from "../pages/MyBookings/MyBookings";
 import ManageEvents from "../pages/ManageEvents/ManageEvents";
 import CreateEvent from "../pages/CreateEvent/CreateEvent";
@@ -38,7 +37,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'bookEvent',
-                element: <PrivateRouter><BookEvent/></PrivateRouter>,
+                element: <div>this page not use</div>,
             },
             {
                 path: 'myBookings',

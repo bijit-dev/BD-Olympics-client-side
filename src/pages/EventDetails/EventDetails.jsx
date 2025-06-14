@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate, useParams } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 
 const EventDetails = () => {
@@ -7,32 +7,39 @@ const EventDetails = () => {
 
     const navigate = useNavigate();
 
-
-
-
-    const e = useParams();
-    console.log(user.email);
-    console.log(e);
-    
+    const {_id, eventName, eventType, description, imageURL, eventDate, creatorName, creatorEmail } = data;
 
     const handleBooking = () => {
-        navigate(`/booking`);
+        navigate(`/myBookings`);
         // currentEvent.user_email = user.email
+        console.log(user.email);
+        
     }
 
     return (
         <div className="container mx-auto px-4 py-12">
-            <h1 className="text-2xl font-bold mb-4">{data.eventName}</h1>
-            <p className="text-gray-600 font-medium text-lg">Event Type: {data.eventType}</p>
-            <p className="mb-4">{data.description}</p>
-            <img src={data.imageUrl} alt={data.eventName} className="w-full h-auto mb-4" />
-            <p className="text-green-600 font-medium text-lg">Date: {new Date(data.eventDate).toLocaleDateString()}</p>
+            <div className="card lg:card-side bg-base-100 border  shadow-lg">
+                <figure  className="w-full lg:w-4/2 ">
+                    <img className="w-full h-full "
+                        src={imageURL}
+                        alt={eventName} />
+                </figure>
+                <div className="card-body">
+                    <h2 className="card-title">{eventName}</h2>
+                    <p className="text-gray-600 font-medium text-lg">Event Type: {eventType}</p>
+                    <p className="text-green-600 font-medium text-lg">Date: {new Date(eventDate).toLocaleDateString()}</p>
+                    <p className=" text-justify">{description}</p>
 
-            
-            <p className="text-gray-600 font-medium text-lg">Organizer: {data.creatorName}</p>
-            <p className="text-gray-600 font-medium text-lg">Contact: {data.creatorEmail}</p>
 
-            <button onClick={handleBooking} className="btn btn-primary mt-4">Book Now</button>
+                    <p className="text-gray-600 font-medium text-lg">Organizer: {creatorName}</p>
+                    <p className="text-gray-600 font-medium text-lg">Contact: {creatorEmail}</p>
+
+                    <div className="card-actions justify-end">
+                        <button onClick={handleBooking} className="btn btn-primary mt-4">Book Now</button>
+                    </div>
+
+                </div>
+            </div>
         </div>
     );
 };

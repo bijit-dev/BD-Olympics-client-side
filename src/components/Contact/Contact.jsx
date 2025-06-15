@@ -1,10 +1,16 @@
 import { MdAddCall, MdLocationOn, MdMailOutline } from 'react-icons/md';
+import Swal from 'sweetalert2';
 
 const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("send Message");
+        Swal.fire({
+            title: "send Message successfully!",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500
+        });
 
     }
     return (

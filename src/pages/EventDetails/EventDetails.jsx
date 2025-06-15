@@ -9,17 +9,13 @@ import { TbDetails } from "react-icons/tb";
 const EventDetails = () => {
     const data = useLoaderData();
     const { user } = useAuth();
-
     const navigate = useNavigate();
-
     const { eventName, eventType, description, imageURL, eventDate, creatorName, creatorEmail } = data;
 
     const handleBooking = () => {
         navigate(`/myBookings`);
         const bookingEvent = data;
         bookingEvent.user_email = user.email
-
-        console.log(bookingEvent);
 
         axios.post(`${import.meta.env.VITE_API_URL}/booking`, bookingEvent)
             .then(data => {
@@ -48,8 +44,6 @@ const EventDetails = () => {
                     <p className="text-green-600 font-medium text-lg flex items-center gap-3"> <MdOutlineDateRange />Date: {new Date(eventDate).toLocaleDateString()}</p>
                     <p className="font-medium text-secondary flex items-center gap-3"><TbDetails />Description :</p>
                     <p className="text-justify">{description}</p>
-
-
                     <p className="text-gray-600 font-medium text-lg flex items-center gap-3"> <MdOutlinePeopleAlt />Organizer: {creatorName}</p>
                     <p className="text-gray-600 font-medium text-lg flex items-center gap-3"><MdOutlineMailOutline />Contact: {creatorEmail}</p>
 

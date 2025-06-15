@@ -17,9 +17,9 @@ const CreateEvent = () => {
         
         // send event data to the db
         axios.post(`${import.meta.env.VITE_API_URL}/create-event`, newEvent)
-        .then(data => {
-            if (data.insertedId) {
-                    Navigate('/manageEvents');
+        .then(data => {            
+            if (data.data.insertedId) {
+                Navigate('/manageEvents');
                     Swal.fire({
                         title: "New Event added successfully!",
                         icon: "success",

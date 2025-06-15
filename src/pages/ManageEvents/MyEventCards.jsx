@@ -11,7 +11,6 @@ const MyEventCards = ({ eventsCreatedByPromise }) => {
     useEffect(() => {
         setMyEvents(myEventsData);
     }, [myEventsData]);
-    console.log(myEvents);
 
     // handle delete event
     const handleDelete = (_id) => {
@@ -49,7 +48,7 @@ const MyEventCards = ({ eventsCreatedByPromise }) => {
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:mt-10">
-            {myEvents.map(event => <div className="card bg-base-100 shadow-lg">
+            {myEvents.map((event, index) => <div key={index} className="card bg-base-100 shadow-lg">
                 <figure>
                     <img src={event.imageURL} alt={event.eventName} />
                 </figure>

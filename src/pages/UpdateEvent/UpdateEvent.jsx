@@ -1,9 +1,7 @@
 import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
-// import useAuth from "../../hooks/useAuth";
 
-const UpdateEvent = () => {
-    // const { user } = useAuth();    
+const UpdateEvent = () => {   
     const initialEvents = useLoaderData();
     const Navigate = useNavigate();
 

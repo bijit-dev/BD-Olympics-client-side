@@ -13,6 +13,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import EventDetails from "../pages/EventDetails/EventDetails";
 import PrivateRouter from "./PrivateRouter";
 import UpdateEvent from "../pages/UpdateEvent/UpdateEvent";
+import BookEvent from "../pages/BookEvent/BookEvent";
 
 export const router = createBrowserRouter([
     {
@@ -32,12 +33,11 @@ export const router = createBrowserRouter([
             {
                 path: 'event/:id',
                 element: <PrivateRouter><EventDetails/></PrivateRouter>,
-                // loader: () => fetch('http://localhost:3000/events')
                 loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/event/${params.id}`)
             },
             {
                 path: 'bookEvent',
-                element: <div>this page not use</div>,
+                element: <PrivateRouter><BookEvent/></PrivateRouter>,
             },
             {
                 path: 'myBookings',

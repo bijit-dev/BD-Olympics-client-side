@@ -1,5 +1,8 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import slide1 from "../../assets/slide/slide1.jpeg"
+import slide2 from "../../assets/slide/slide2.jpeg"
+import slide3 from "../../assets/slide/slide3.jpeg"
 
 // Import Swiper styles
 import 'swiper/css';
@@ -26,7 +29,9 @@ const Slider = () => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
-                <SwiperSlide>helo</SwiperSlide>
+                <SwiperSlide><Slide imges={slide1}></Slide></SwiperSlide>
+                <SwiperSlide><Slide imges={slide2}></Slide></SwiperSlide>
+                <SwiperSlide><Slide imges={slide3}></Slide></SwiperSlide>
             </Swiper>
         </>
     );

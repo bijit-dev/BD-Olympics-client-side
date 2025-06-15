@@ -4,13 +4,14 @@ import { RiDeleteBin6Fill } from 'react-icons/ri';
 import { NavLink } from 'react-router';
 import Swal from 'sweetalert2';
 
-const MyEvents = ({ eventsCreatedByPromise }) => {
+const MyEventCards = ({ eventsCreatedByPromise }) => {
     const myEventsData = use(eventsCreatedByPromise);
     const [myEvents, setMyEvents] = useState([])
 
     useEffect(() => {
         setMyEvents(myEventsData);
     }, [myEventsData]);
+    console.log(myEvents);
 
     // handle delete event
     const handleDelete = (_id) => {
@@ -47,39 +48,27 @@ const MyEvents = ({ eventsCreatedByPromise }) => {
     }
 
     return (
-        <div className="overflow-x-auto mt-10 border-2 border-green-300 rounded-2xl shadow-2xl">
-            <table className="table">
-                {/* head */}
-                <thead>
-                    <tr className='bg-gray-200 md:text-lg lg:text-xl'>
-                        <th></th>
-                        <th>Event Name</th>
-                        <th className='text-center'>Event Type</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {/* rows */}
-                    {
-                        myEvents.map((event, index) => (
-                            <tr key={index}>
-                                <th>{index + 1}</th>
-                                <td className=' text-base max-w-56'>{event.eventName}</td>
-                                <td className='text-center'>{event.eventType}</td>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:mt-10">
+            {myEvents.map(event => <div className="card bg-base-100 shadow-lg">
+                <figure>
+                    <img src={event.imageURL} alt={event.eventName} />
+                </figure>
+                <div className="card-body">
+                    <h2 className="card-title">{event.eventName}</h2>
+                    <p className="text-gray-600 font-medium text-lg">Event Type: {event.eventType}</p>
+                    <div className="card-actions justify-end">
+                        <p className="text-green-600 font-medium text-lg">Event Date: {new Date(event.eventDate).toLocaleDateString()}</p>
 
-                                <td className='text-center '><NavLink to={`/updateEvent/${event._id}`} className='btn btn-soft btn-success w-full font-bold border-2 border-green-400'><GrUpdate />Update</NavLink></td>
+                        <div className="w-full flex justify-evenly mt-2">
+                            <NavLink to={`/updateEvent/${event._id}`} className='btn btn-soft btn-success  font-bold border-2 border-green-400'><GrUpdate />Update</NavLink>
+                            <button onClick={() => handleDelete(event._id)} className='btn btn-soft btn-error font-bold border-2 border-red-400'><RiDeleteBin6Fill />Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>)}
 
-                                <td className='text-center'><button  onClick={() => handleDelete(event._id)} className='btn btn-soft btn-error w-full font-bold border-2 border-red-400'><RiDeleteBin6Fill  />Delete</button></td>
-                            </tr>
-                        ))
-                    }
-
-
-                </tbody>
-            </table>
         </div>
     );
 };
 
-export default MyEvents;
+export default MyEventCards;

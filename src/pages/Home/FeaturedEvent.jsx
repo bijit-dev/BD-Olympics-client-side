@@ -12,7 +12,7 @@ const FeaturedEvent = ({ data }) => {
         <section className="pb-6 rounded-lg bg-green-50">
             <div className=" container mx-auto px-5 my-12 rounded-lg">
                 <div className="text-center py-8">
-                    <h1 className="text-lg md:text-2xl lg:text-4xl font-bold text-center mb-4">Welcome to Our Featured Event</h1>
+                    <h1 className="text-lg md:text-2xl lg:text-4xl font-bold text-center mb-4">Our Featured Event</h1>
                     <p className="text-center">Discover exciting events and book your spot today!</p>
                 </div>
 

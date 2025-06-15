@@ -13,20 +13,19 @@ const CreateEvent = () => {
         const form = e.target;
         const formData = new FormData(form);
         const newEvent = Object.fromEntries(formData.entries())
-
-        Navigate('/manageEvents');
-
+        // newEvent.bookingEvent = [];
+        
         // send event data to the db
         axios.post(`${import.meta.env.VITE_API_URL}/create-event`, newEvent)
-            .then(data => {
-                if (data.insertedId) {
+        .then(data => {
+            if (data.insertedId) {
+                    Navigate('/manageEvents');
                     Swal.fire({
                         title: "New Event added successfully!",
                         icon: "success",
                         showConfirmButton: false,
                         timer: 1500
                     });
-
                     form.reset()
                 }
             })

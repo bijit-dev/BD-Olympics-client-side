@@ -23,7 +23,7 @@ const EventDetails = () => {
 
         axios.post(`${import.meta.env.VITE_API_URL}/booking`, bookingEvent)
             .then(data => {
-                if (data.insertedId) {
+                if (data.data.insertedId) {
                     Swal.fire({
                         title: "New Event added successfully!",
                         icon: "success",

@@ -1,5 +1,5 @@
 import { use, useEffect, useState } from 'react';
-import { GrUpdate } from 'react-icons/gr';
+import { FaEdit } from 'react-icons/fa';
 import { RiDeleteBin6Fill } from 'react-icons/ri';
 import { NavLink } from 'react-router';
 import Swal from 'sweetalert2';
@@ -68,7 +68,7 @@ const MyEvents = ({ eventsCreatedByPromise }) => {
                                 <td className=' text-base max-w-56'>{event.eventName}</td>
                                 <td className='text-center'>{event.eventType}</td>
 
-                                <td className='text-center '><NavLink to={`/updateEvent/${event._id}`} className='btn btn-soft btn-success w-full font-bold border-2 border-green-400'><GrUpdate />Update</NavLink></td>
+                                <td className='text-center '><NavLink to={`/updateEvent/${event._id}`} className='btn btn-soft btn-success w-full font-bold border-2 border-green-400'><FaEdit />Update</NavLink></td>
 
                                 <td className='text-center'><button  onClick={() => handleDelete(event._id)} className='btn btn-soft btn-error w-full font-bold border-2 border-red-400'><RiDeleteBin6Fill  />Delete</button></td>
                             </tr>

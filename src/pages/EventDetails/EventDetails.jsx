@@ -2,6 +2,9 @@ import { useLoaderData, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { MdOutlineDateRange, MdOutlineMailOutline, MdOutlinePeopleAlt } from "react-icons/md";
+import { FaAddressBook, FaCheck } from "react-icons/fa";
+import { TbDetails } from "react-icons/tb";
 
 const EventDetails = () => {
     const data = useLoaderData();
@@ -41,16 +44,17 @@ const EventDetails = () => {
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title">{eventName}</h2>
-                    <p className="text-gray-600 font-medium text-lg">Event Type: {eventType}</p>
-                    <p className="text-green-600 font-medium text-lg">Date: {new Date(eventDate).toLocaleDateString()}</p>
-                    <p className=" text-justify">{description}</p>
+                    <p className="text-gray-600 font-medium text-lg flex items-center gap-3"> <FaCheck />Event Type: {eventType}</p>
+                    <p className="text-green-600 font-medium text-lg flex items-center gap-3"> <MdOutlineDateRange />Date: {new Date(eventDate).toLocaleDateString()}</p>
+                    <p className="font-medium text-secondary flex items-center gap-3"><TbDetails />Description :</p>
+                    <p className="text-justify">{description}</p>
 
 
-                    <p className="text-gray-600 font-medium text-lg">Organizer: {creatorName}</p>
-                    <p className="text-gray-600 font-medium text-lg">Contact: {creatorEmail}</p>
+                    <p className="text-gray-600 font-medium text-lg flex items-center gap-3"> <MdOutlinePeopleAlt />Organizer: {creatorName}</p>
+                    <p className="text-gray-600 font-medium text-lg flex items-center gap-3"><MdOutlineMailOutline />Contact: {creatorEmail}</p>
 
                     <div className="card-actions justify-end">
-                        <button onClick={handleBooking} className="btn btn-primary mt-4">Book Now</button>
+                        <button onClick={handleBooking} className="btn btn-primary mt-4 flex items-center gap-3"><FaAddressBook />Book Now</button>
                     </div>
 
                 </div>

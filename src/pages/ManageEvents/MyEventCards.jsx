@@ -1,5 +1,5 @@
 import { use, useEffect, useState } from 'react';
-import { GrUpdate } from 'react-icons/gr';
+import { FaEdit } from 'react-icons/fa';
 import { RiDeleteBin6Fill } from 'react-icons/ri';
 import { NavLink } from 'react-router';
 import Swal from 'sweetalert2';
@@ -60,7 +60,7 @@ const MyEventCards = ({ eventsCreatedByPromise }) => {
                         <p className="text-green-600 font-medium text-lg">Event Date: {new Date(event.eventDate).toLocaleDateString()}</p>
 
                         <div className="w-full flex justify-evenly mt-2">
-                            <NavLink to={`/updateEvent/${event._id}`} className='btn btn-soft btn-success  font-bold border-2 border-green-400'><GrUpdate />Update</NavLink>
+                            <NavLink to={`/updateEvent/${event._id}`} className='btn btn-soft btn-success  font-bold border-2 border-green-400'><FaEdit />Update</NavLink>
                             <button onClick={() => handleDelete(event._id)} className='btn btn-soft btn-error font-bold border-2 border-red-400'><RiDeleteBin6Fill />Delete</button>
                         </div>
                     </div>

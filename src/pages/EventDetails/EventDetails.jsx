@@ -1,5 +1,7 @@
 import { useLoaderData, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const EventDetails = () => {
     const data = useLoaderData();
@@ -7,19 +9,32 @@ const EventDetails = () => {
 
     const navigate = useNavigate();
 
-    const {_id, eventName, eventType, description, imageURL, eventDate, creatorName, creatorEmail } = data;
+    const { eventName, eventType, description, imageURL, eventDate, creatorName, creatorEmail } = data;
 
     const handleBooking = () => {
         navigate(`/myBookings`);
-        // currentEvent.user_email = user.email
-        console.log(user.email);
-        
+        const bookingEvent = data;
+        bookingEvent.user_email = user.email
+
+        console.log(bookingEvent);
+
+        axios.post(`${import.meta.env.VITE_API_URL}/booking`, bookingEvent)
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "New Event added successfully!",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
     }
 
     return (
         <div className="container mx-auto px-4 py-12">
             <div className="card lg:card-side bg-base-100 border  shadow-lg">
-                <figure  className="w-full lg:w-4/2 ">
+                <figure className="w-full lg:w-4/2 ">
                     <img className="w-full h-full "
                         src={imageURL}
                         alt={eventName} />

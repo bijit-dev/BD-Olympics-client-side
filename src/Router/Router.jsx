@@ -22,18 +22,18 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home,
-                loader: () => fetch('http://localhost:3000/events')
+                loader: () => fetch(`${import.meta.env.VITE_API_URL}/events`)
             },
             {
                 path: 'eventsPage',
                 Component: EventsPage,
-                loader: () => fetch('http://localhost:3000/events')
+                loader: () => fetch(`${import.meta.env.VITE_API_URL}/events`)
             },
             {
                 path: 'event/:id',
                 element: <PrivateRouter><EventDetails/></PrivateRouter>,
                 // loader: () => fetch('http://localhost:3000/events')
-                loader: ({ params }) => fetch(`http://localhost:3000/event/${params.id}`)
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/event/${params.id}`)
             },
             {
                 path: 'bookEvent',
@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
             {
                 path: 'updateEvent/:id',
                 element: <PrivateRouter><UpdateEvent /></PrivateRouter>,
-                loader: ({ params }) => fetch(`http://localhost:3000/event/${params.id}`)
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/event/${params.id}`)
             },
             {
                 path: 'register',

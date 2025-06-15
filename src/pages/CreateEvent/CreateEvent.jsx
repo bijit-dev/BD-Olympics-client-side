@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 const CreateEvent = () => {
     const { user } = useAuth();
@@ -16,14 +17,7 @@ const CreateEvent = () => {
         Navigate('/manageEvents');
 
         // send event data to the db
-        fetch('http://localhost:3000/create-event', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newEvent)
-        })
-            .then(res => res.json())
+        axios.post(`${import.meta.env.VITE_API_URL}/create-event`, newEvent)
             .then(data => {
                 if (data.insertedId) {
                     Swal.fire({

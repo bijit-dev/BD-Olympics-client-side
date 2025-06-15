@@ -15,7 +15,7 @@ const UpdateEvent = () => {
         const newEvent = Object.fromEntries(formData.entries())
 
         // send updated event to the db
-        fetch(`http://localhost:3000/Event/${_id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/Event/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -23,7 +23,7 @@ const MyEvents = ({ eventsCreatedByPromise }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // start deleting the event
-                fetch(`http://localhost:3000/event/${_id}`, {
+                fetch(`${import.meta.env.VITE_API_URL}/event/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

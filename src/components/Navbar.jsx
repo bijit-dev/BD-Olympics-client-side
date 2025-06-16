@@ -19,6 +19,10 @@ const Navbar = () => {
     const lists = <>
         <li><NavLink to="/" className={({ isActive }) => isActive ? "text-[#0EA106] underline text-lg font-bold" : "text-lg font-medium"}>Home</NavLink></li>
         <li><NavLink to="/eventsPage" className={({ isActive }) => isActive ? "text-[#0EA106] underline text-lg font-bold" : "text-lg font-medium"}>Events Page</NavLink></li>
+        {
+        user && <li><NavLink to="/create-event" className={({ isActive }) => isActive ? "text-[#0EA106] underline text-lg font-bold" : "text-lg font-medium"}>Create Event</NavLink></li>
+
+        }
     </>
 
     return (

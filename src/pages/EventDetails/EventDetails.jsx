@@ -33,7 +33,7 @@ const EventDetails = () => {
     return (
         <div className="container mx-auto px-4 py-12">
             <div className="card lg:card-side bg-base-100 border  shadow-lg">
-                <figure className="w-full lg:w-4/2 ">
+                <figure className="w-full lg:w-1/2 ">
                     <img className="w-full h-full "
                         src={imageURL}
                         alt={eventName} />

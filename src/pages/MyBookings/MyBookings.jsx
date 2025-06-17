@@ -15,7 +15,6 @@ const MyBookings = () => {
 
     const newMyBookingData = data.filter(event => event.user_email === user.email);
 
-    console.log(newMyBookingData);
 
     // handle delete event
     const handleDelete = (_id) => {

@@ -21,8 +21,6 @@ const EventDetails = () => {
     }, [])
     
     const newBookingData = bookingData.find(event => event.event_id !== _id && event.user_email===user.email);
-    // console.log(bookingData);
-    console.log(!newBookingData);
 
     const handleBooking = () => {
         navigate(`/myBookings`);

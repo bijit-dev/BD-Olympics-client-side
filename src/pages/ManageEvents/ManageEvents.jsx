@@ -11,7 +11,7 @@ import MyEventCards from './MyEventCards';
 
 const ManageEvents = () => {
     const { user } = useAuth();
-    const [toggle, setToggle] = useState(true);
+    const [toggle, setToggle] = useState(false);
 
     const handleCard = () => {
         setToggle(true)
@@ -40,8 +40,8 @@ const ManageEvents = () => {
             </div>
             <Suspense fallback={<Loader />}>
                 {
-                    toggle ? <MyEventCards eventsCreatedByPromise={eventsCreatedByPromise(user.email)} />
-                : <MyEvents eventsCreatedByPromise={eventsCreatedByPromise(user.email)} />
+                    toggle ? <MyEventCards eventsCreatedByPromise={eventsCreatedByPromise(user.email, user.accessToken)} />
+                : <MyEvents eventsCreatedByPromise={eventsCreatedByPromise(user.email, user.accessToken)} />
                 }
             </Suspense>
 

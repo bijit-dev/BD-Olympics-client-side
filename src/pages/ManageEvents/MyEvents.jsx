@@ -62,7 +62,7 @@ const MyEvents = ({ eventsCreatedByPromise }) => {
                 <tbody>
                     {/* rows */}
                     {
-                        myEvents.map((event, index) => (
+                        myEvents?.map((event, index) => (
                             <tr key={index}>
                                 <th>{index + 1}</th>
                                 <td className=' text-base max-w-56'>{event.eventName}</td>

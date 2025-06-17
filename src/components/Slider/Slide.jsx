@@ -1,5 +1,6 @@
 import React from 'react';
 import useAuth from '../../hooks/useAuth';
+import { NavLink } from 'react-router';
 
 const Slide = ({ imges }) => {
     const { user } = useAuth();
@@ -14,10 +15,10 @@ const Slide = ({ imges }) => {
         >
             <div className="hero-overlay"></div>
             <div className="hero-content text-neutral-content">
-                <div className="">
+                <div className="flex flex-col justify-center items-center">
                     <h1 className='md:text-4xl text-success font-bold capitalize '>welcome our webside</h1>
                     {
-                        user && <NavLink to="/create-event" className={({ isActive }) => isActive ? "text-[#0EA106] underline text-lg font-bold" : "text-lg font-medium"}>Create Event</NavLink>
+                        user && <NavLink to="/create-event" className="btn btn-primary btn-lg mt-8">Create Event</NavLink>
                     }
                 </div>
             </div>

@@ -52,7 +52,7 @@ const MyEvents = ({ eventsCreatedByPromise }) => {
                 {/* head */}
                 <thead>
                     <tr className='bg-gray-200 md:text-lg lg:text-xl'>
-                        <th></th>
+                        <th>SI</th>
                         <th>Event Name</th>
                         <th className='text-center'>Event Type</th>
                         <th></th>
@@ -65,12 +65,26 @@ const MyEvents = ({ eventsCreatedByPromise }) => {
                         myEvents?.map((event, index) => (
                             <tr key={index}>
                                 <th>{index + 1}</th>
-                                <td className=' text-base max-w-56'>{event.eventName}</td>
+                                <td className=' text-base max-w-56'>
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle h-12 w-12">
+                                                <img
+                                                    src={event.imageURL}
+                                                    alt={event.eventName} />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">{event.eventName}</div>
+                                            <div className="text-sm opacity-50">{event.location}</div>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td className='text-center'>{event.eventType}</td>
 
                                 <td className='text-center '><NavLink to={`/updateEvent/${event._id}`} className='btn btn-soft btn-success w-full font-bold border-2 border-green-400'><FaEdit />Update</NavLink></td>
 
-                                <td className='text-center'><button  onClick={() => handleDelete(event._id)} className='btn btn-soft btn-error w-full font-bold border-2 border-red-400'><RiDeleteBin6Fill  />Delete</button></td>
+                                <td className='text-center'><button onClick={() => handleDelete(event._id)} className='btn btn-soft btn-error w-full font-bold border-2 border-red-400'><RiDeleteBin6Fill />Delete</button></td>
                             </tr>
                         ))
                     }

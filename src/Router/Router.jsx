@@ -41,7 +41,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'myBookings',
-                element: <PrivateRouter><MyBookings/></PrivateRouter>,
+                element: <PrivateRouter><MyBookings /></PrivateRouter>,
+                loader: () => fetch(`${import.meta.env.VITE_API_URL}/booking`)
+                
             },
             {
                 path: 'manageEvents',

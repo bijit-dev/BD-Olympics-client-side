@@ -3,17 +3,19 @@ import { useLoaderData } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import { RiDeleteBin6Fill } from 'react-icons/ri';
+import { useEffect, useState } from 'react';
 
 const MyBookings = () => {
     const data = useLoaderData();
     const { user } = useAuth();
-    // const [myEvents, setMyEvents] = useState([])
+    const [myEvents, setMyEvents] = useState([])
 
-    // useEffect(() => {
-    //     setMyEvents(data);
-    // }, [data]);
-
-    const newMyBookingData = data.filter(event => event.user_email === user.email);
+    useEffect(() => {
+        if (user?.email) {
+            const newMyBookingData = data.filter(event => event.user_email === user.email);
+            setMyEvents(newMyBookingData);
+        }
+    }, [data, user?.email]);
 
 
     // handle delete event
@@ -42,8 +44,8 @@ const MyBookings = () => {
                                 timer: 1500
                             });
                             // remove the event from the state
-                            // const remainingevent = myEvents?.filter(e => e._id !== _id);
-                            // setMyEvents(remainingevent);
+                            const remainingevent = myEvents?.filter(e => e._id !== _id);
+                            setMyEvents(remainingevent);
                         }
                     })
             }
@@ -51,6 +53,9 @@ const MyBookings = () => {
     }
     return (
         <div className="overflow-x-auto">
+            <title>
+                My Bookings
+            </title>
             <table className="table">
                 {/* head */}
                 <thead>
@@ -64,7 +69,7 @@ const MyBookings = () => {
                 <tbody>
                     {/* rows */}
                     {
-                        newMyBookingData?.map((event, index) => (
+                        myEvents?.map((event, index) => (
                             <tr key={index}>
                                 <th>{index + 1}</th>
                                 <td className='w-3/5'>

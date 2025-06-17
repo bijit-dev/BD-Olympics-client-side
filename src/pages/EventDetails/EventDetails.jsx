@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 const EventDetails = () => {
     const data = useLoaderData();
     const [bookingData, setBooking] = useState([]);
-    // const [foundBookingData, setFoundBookingData] = useState(null);
     const { user } = useAuth();
     const navigate = useNavigate();
     const { _id, eventName, eventType, description, imageURL, eventDate, creatorName, creatorEmail } = data;
@@ -20,22 +19,8 @@ const EventDetails = () => {
         axios.get(`${import.meta.env.VITE_API_URL}/booking`)
             .then(data => setBooking(data.data))
     }, [])
-    const newBookingData = bookingData.find(event => event.event_id !== _id && event.user_email === user.email);
-
-    console.log(!!newBookingData);
+    const newBookingData = bookingData.find(event => event.event_id === _id && event.user_email === user.email);
     
-
-    // useEffect(() => {
-    //     const newBookingData = bookingData.find(event => event.event_id !== _id && event.user_email === user.email);
-    //     // console.log(!!newBookingData);
-    //     console.log(user.email, bookingData);
-    //     setFoundBookingData(newBookingData);
-    // }, [bookingData, user, _id])
-
-
-
-
-
     const handleBooking = () => {
         const { _id, ...bookingEvent } = data;
         bookingEvent.user_email = user.email

@@ -37,6 +37,7 @@ const UpdateEvent = () => {
     }
     return (
         <div className=' container mx-auto text-center px-5 my-14'>
+            <title>Update Event</title>
             <h1 className='text-3xl mb-12 font-bold text-cyan-600'>Update Event Info</h1>
             
 

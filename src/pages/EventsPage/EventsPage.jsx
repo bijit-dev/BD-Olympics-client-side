@@ -11,8 +11,8 @@ const EventsPage = () => {
     );
 
     return (
-        <div>
-            <div className='container mx-auto px-4 py-12'>
+        <div className='container mx-auto px-4 py-12'>
+            <title>Events Pages</title>
                 <div className="relative">
                     <h1 className='text-2xl text-center font-bold mb-4'>Events</h1>
                     <p className='mb-8 text-center'>Here you can find a list of all events.</p>
@@ -42,7 +42,6 @@ const EventsPage = () => {
                     {filteredEvents.map(event => <EventPageCard key={event._id} event={event} />)}
                 </div>
             </div>
-        </div>
     );
 };
 

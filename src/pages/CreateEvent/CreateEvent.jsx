@@ -33,6 +33,7 @@ const CreateEvent = () => {
 
     return (
         <div className=' container mx-auto text-center px-5 my-14'>
+            <title>Create Event</title>
             <h1 className='text-3xl mb-12 font-bold text-cyan-600'>Create Event</h1>
 
             <form onSubmit={handleAddEvent} className="bg-base-200 border-base-300 rounded-box border p-8 shadow-2xl">

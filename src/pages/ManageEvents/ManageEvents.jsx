@@ -23,6 +23,7 @@ const ManageEvents = () => {
 
     return (
         <div className='container mx-auto px-4 py-12'>
+            <title>Manage Events</title>
             <div className='flex justify-between items-center'>
                 <div>
                     <h1 className='text-2xl font-bold mb-4'>Manage Events</h1>

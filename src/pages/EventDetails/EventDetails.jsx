@@ -10,27 +10,41 @@ import { useEffect, useState } from "react";
 const EventDetails = () => {
     const data = useLoaderData();
     const [bookingData, setBooking] = useState([]);
+    // const [foundBookingData, setFoundBookingData] = useState(null);
     const { user } = useAuth();
     const navigate = useNavigate();
     const { _id, eventName, eventType, description, imageURL, eventDate, creatorName, creatorEmail } = data;
-    
+
     // load booking data 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/booking`)
-        .then(data => setBooking(data.data))
+            .then(data => setBooking(data.data))
     }, [])
+    const newBookingData = bookingData.find(event => event.event_id !== _id && event.user_email === user.email);
+
+    console.log(!!newBookingData);
     
-    const newBookingData = bookingData.find(event => event.event_id !== _id && event.user_email===user.email);
+
+    // useEffect(() => {
+    //     const newBookingData = bookingData.find(event => event.event_id !== _id && event.user_email === user.email);
+    //     // console.log(!!newBookingData);
+    //     console.log(user.email, bookingData);
+    //     setFoundBookingData(newBookingData);
+    // }, [bookingData, user, _id])
+
+
+
+
 
     const handleBooking = () => {
-        navigate(`/myBookings`);
         const { _id, ...bookingEvent } = data;
         bookingEvent.user_email = user.email
         bookingEvent.event_id = data._id
-
+        
         axios.post(`${import.meta.env.VITE_API_URL}/booking`, bookingEvent)
-            .then(data => {
-                if (data?.data?.insertedId) {
+        .then(data => {
+            if (data?.data?.insertedId) {
+                    navigate(`/myBookings`);
                     Swal.fire({
                         title: "New Event added successfully!",
                         icon: "success",
@@ -60,7 +74,7 @@ const EventDetails = () => {
 
                     <div className="card-actions justify-end">
                         {
-                            !newBookingData ? <div>
+                            newBookingData ? <div>
                                 booked this event
                             </div>
                                 : <button onClick={handleBooking} className={`btn btn-primary mt-4 flex items-center gap-3`}><FaAddressBook />Book Now</button>}

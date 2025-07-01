@@ -1,4 +1,4 @@
-# Hobby Group Organizer- HobbyHub:
+# BD Olimpic:
 
 A secure and responsive authentication-based web application built with **React.js** and **Firebase**. This project features a modern user interface and enables users to sign up, sign in, and manage their session with real-time authentication updates.
 
@@ -18,7 +18,7 @@ React.js, tailwindcss, DaisyUI, firebase, react, react-dom, react-icons, react-r
 
 - 🔐 Firebase Authentication (Email/Password & Google Sign-In)
 - 🧑 User registration and login system
-- 🔁 Realtime authentication state updates
+- 🔁 Real-time authentication state updates
 - 📄 Protected Routes using React Router
 - 💡 Friendly UI/UX with responsive design
 - ✅ User feedback for success/failure actions

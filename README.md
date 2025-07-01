@@ -31,7 +31,7 @@ React.js, tailwindcss, DaisyUI, firebase, react, react-dom, react-icons, react-r
 1. #### Clone the Repository
 
 ```bash
-git clone https://github.com/bijit-dev/BD-Olimpic_client-side.git
+git clone  https://github.com/bijit-dev/BD-Olympics-client-side.git
 cd b11a10-client-side-bijit-dev
 ```
 

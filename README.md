@@ -31,7 +31,7 @@ React.js, tailwindcss, DaisyUI, firebase, react, react-dom, react-icons, react-r
 1. #### Clone the Repository
 
 ```bash
-git clone https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-bijit-dev.git
+git clone https://github.com/bijit-dev/bd-olimpic.git
 cd b11a10-client-side-bijit-dev
 ```
 

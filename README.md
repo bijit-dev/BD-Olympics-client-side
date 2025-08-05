@@ -1,6 +1,6 @@
 # BD Olimpic:
 
-It is a web app where users can create, discover, and join local hobby groups based on shared interests like reading, painting, or hiking. It features user authentication, protected routes, and tools for managing and updating group activities. The platform fosters real-world connections through community-driven engagement.
+This Athletic Event Booking Platform connects users with local sports events, allowing them to browse, book, and manage events. It features full authentication, role-based private routes, and dynamic event management. The platform includes a responsive UI, real-time feedback, and extra features like search, JWT auth, and layout toggling.
 
 # Project Overview:
 

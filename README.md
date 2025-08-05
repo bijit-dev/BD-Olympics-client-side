@@ -1,6 +1,6 @@
 # BD Olimpic:
 
-A secure and responsive authentication-based web application built with **React.js** and **Firebase**. This project features a modern user interface and enables users to sign up, sign in, and manage their session with real-time authentication updates.
+It is a web app where users can create, discover, and join local hobby groups based on shared interests like reading, painting, or hiking. It features user authentication, protected routes, and tools for managing and updating group activities. The platform fosters real-world connections through community-driven engagement.
 
 # Project Overview:
 
